@@ -1,20 +1,26 @@
 # 03 - アプリケーション・ログの設定
 
-__This guide is part of the [Azure Spring Cloud training](../README.md)__
+__このガイドは  [Azure Spring Cloud training](../README.md) トレーニング のコンテンツの一部です__
 
-Access Spring Boot applications logs to understand common issues.
+一般的な課題を理解するために、Spring Boot アプリケーションのログへのアクセス
 
 ---
 
-## Configure log aggregation
+## ログの集約に関する設定
 
-There are actually three ways to access your application's logs: [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction/?WT.mc_id=azurespringcloud-github-judubois), [Azure Events Hub](https://docs.microsoft.com/en-us/azure/event-hubs/?WT.mc_id=azurespringcloud-github-judubois), and [Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-portal/?WT.mc_id=azurespringcloud-github-judubois). We will focus here on Log Analytics as it's the most common one, and as it's integrated into Azure Spring Cloud.
+アプリケーションのログにアクセスするには、下記の 3 種類があります。  
 
-[Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-portal/?WT.mc_id=azurespringcloud-github-judubois) is part of Azure Monitor, which is well-integrated into Azure Spring Cloud, and which we will also use for metrics monitoring.
+* [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction/?WT.mc_id=azurespringcloud-github-yoterada)  
+* [Azure Events Hub](https://docs.microsoft.com/en-us/azure/event-hubs/?WT.mc_id=azurespringcloud-github-yoterada)  
+* [Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-portal/?WT.mc_id=azurespringcloud-github-yoterada) 
 
-- Go to the [the Azure portal](https://portal.azure.com/?WT.mc_id=azurespringcloud-github-judubois).
-- Search for "Log Analytics workspaces" in the search box.
-- Create a new workspace in your Azure Spring Cloud ressource group.
+ここでは、最も一般的であり、Azure Spring Cloud に統合されている　Log Analytics を利用します。
+
+[Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-portal/?WT.mc_id=azurespringcloud-github-yoterada) は Azure Monitor の一部で、Azure Spring Cloud にうまく統合されており、メトリックの監視にも役立ちます。
+
+- [Azure Portal](https://portal.azure.com/?WT.mc_id=azurespringcloud-github-judubois) にアクセスしてください
+- 検索ボックスより "Log Analytics workspaces" を検索してください
+- Azure Spring Cloud が含まれるリソース・グループ内に新規ワーク・スペースを作成してください
 
 ![Create Log analytics workspace](media/01-create-logs-analytics-workspace.png)
 

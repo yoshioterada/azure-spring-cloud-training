@@ -39,7 +39,7 @@
 
 ## [03 - アプリケーション・ログの設定](03-configure-application-logs/README.md)
 
-共通の課題を理解するために、Spring Boot アプリケーションのログへのアクセス
+一般的な課題を理解するために、Spring Boot アプリケーションのログへのアクセス
 
 ## [04 - Spring Cloud Config Server の設定](04-configure-a-spring-cloud-config-server/README.md)
 
