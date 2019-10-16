@@ -1,30 +1,31 @@
 # 02 - かんたんな Spring Boot マイクロサービスの構築
 
-__This guide is part of the [Azure Spring Cloud training](../README.md)__
+__このガイドは [Azure Spring Cloud training](../README.md) トレーニング のコンテンツの一部です__
 
-Build the simplest possible Spring Boot microservice, made with [https://start.spring.io/](https://start.spring.io/).
+本章では、[https://start.spring.io/](https://start.spring.io/) を利用した、できる限りかんたんな Spring Boot マイクロサービスの構築を行います。
 
 ---
 
-## Create a simple Spring Boot microservice
+## かんたんな Spring Boot マイクロサービスの構築
 
-The microservice that we create in this guide is [available here](simple-microservice/).
+このガイドで構築するマイクロサービスは [こちらからご入手いただけます](./simple-microservice/)。
 
-To create our microservice, we will use [https://start.spring.io/](https://start.spring.io/) with the command line:
+マイクロサービスを構築するために、コマンド内から [https://start.spring.io/](https://start.spring.io/) を呼び出します。
 
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=web -d baseDir=simple-microservice | tar -xzvf -
 ```
 
-Go into the `simple-microservice` directory to view what has been generated:
+生成された `simple-microservice` ディレクトリの中をご覧ください。
+
 
 ```bash
 cd simple-microservice
 ```
 
-## Add a new Spring MVC Controller
+## 新規 Spring MVC Controller の追加
 
-Open the project with your favorite IDE, and next to the `DemoApplication` class, create a new class called `HelloController` with the following content:
+お好みの統合開発環境 (IDE) でプロジェクトを開き、 `DemoApplication`クラスと同じパッケージの階層上に、` HelloController`という新しいクラスを作成し、下記の内容を記入してください。
 
 ```java
 package com.example.demo;
@@ -42,62 +43,65 @@ public class HelloController {
 }
 ```
 
-The final project is available in the ["simple-microservice" folder](simple-microservice/).
+最終的なプロジェクトの成果物は ["simple-microservice" フォルダ内](simple-microservice/) からご参照頂けます。
 
-## Test the project locally
 
-Run the project:
+## ローカル環境でプロジェクトのテスト
+
+プロジェクトの実行
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-Requesting the `/hello` endpoint should return the "Hello from Azure Spring Cloud" message.
+curl コマンドから `/hello` のエンドポイントにリクエストを送信すると、"Hello from Azure Spring Cloud" というメッセージが返信されます。
 
 ```bash
 curl http://127.0.0.1:8080/hello
 ```
 
-## Create and deploy the application on Azure Spring Cloud
+## Azure Spring Cloud 上にアプリケーションの作成とデプロイ
 
-In order to create the application graphically, you can use [the Azure portal](https://portal.azure.com/?WT.mc_id=azurespringcloud-github-judubois):
+[Azure Portal](https://portal.azure.com/?WT.mc_id=azurespringcloud-github-yoterada) を利用して GUI からアプリケーションを作成することもできます
 
-- Look for your Azure Spring Cloud cluster in your resource group
-- Go to "App Management" and create an application
-- Create a new application named "simple-microservice"
+- リソースグループ内で Azure Spring Cloud クラスターを検索します
+- Settings から　"App" を選択し　”Create App” を押下します
+- "App name" に　"simple-microservice" を入力し作成します
 
 ![Create application](media/01-create-application.png)
 
-You can also use the command line, which is easier:
+また、CLI (コマンドライン) からも作成でき、こちらの方がより簡単です。
 
 ```bash
 az spring-cloud app create -n simple-microservice
 ```
 
-You can now build your "simple-microservice" project and send it to Azure Spring Cloud:
+以上で、「simple-microservice」プロジェクトをビルドして、Azure Spring Cloud に送信できるようになります。
 
 ```bash
 ./mvnw package
 az spring-cloud app deploy -n simple-microservice --jar-path target/demo-0.0.1-SNAPSHOT.jar
 ```
 
-## Test the project in the cloud
+## クラウド環境上でプロジェクトのテスト
 
-Go to [the Azure portal](https://portal.azure.com/?WT.mc_id=azurespringcloud-github-judubois):
+[Azure Portal](https://portal.azure.com/?WT.mc_id=azurespringcloud-github-yoterada) にアクセスしてください。
 
-- Look for your Azure Spring Cloud cluster in your resource group
-- Go to "App Management" and select "simple-microservice"
-- Copy/paste the "Test Endpoint" that is provided.
+- リソースグループ内で Azure Spring Cloud クラスターを検索します
+- "Settings" の "App" を選択し "simple-microservice" のリンクを押下してください
+- "Test Endpoint" の項目に、テスト用接続 URL が記載されていますので、コピーしてください。
 
-You can now use cURL again to test the `/hello` endpoint, this time served by Azure Spring Cloud.
+コピーしたのち、cURL コマンドを利用して、コピーした URL に /hello のエンドポイントを付け加えてアクセスしてください。Azure Spring Cloud 上で処理が実行されます。
 
-## Conclusion
 
-Congratulations, you have deployed your first Spring Boot microservice to Azure Spring Cloud!
+## まとめ
 
-If you need to check your code, the final project is available in the ["simple-microservice" folder](simple-microservice/).
+おめでとうございます！！  
+最初の Spring Boot マイクロサービスを Azure Spring Cloud 上にデプロイできました！
 
-Here is the final script to build and deploy everything that was done in this guide:
+仮に、ソースコードを確認したい場合、プロジェクトの最終成果物は ["simple-microservice" フォルダ内](simple-microservice/) にございますので、どうぞごちらからご確認ください。
+
+下記に、この章で実施してたビルドからデプロイのすべてを行う最終的なスクリプトを記載します。どうぞ、下記をご参照ください。
 
 ```
 curl https://start.spring.io/starter.tgz -d dependencies=web -d baseDir=simple-microservice | tar -xzvf -
@@ -125,6 +129,6 @@ az spring-cloud app deploy -n simple-microservice --jar-path target/demo-0.0.1-S
 
 ---
 
-⬅️ Previous guide: [01 - Create a cluster](../01-create-a-cluster/README.md)
+⬅️ 前章: [01 - クラスタの作成](../01-create-a-cluster/README.md)
 
-➡️ Next guide: [03 - Configure application logs](../03-configure-application-logs/README.md)
+➡️ 次章: [03 - アプリケーション・ログの設定](../03-configure-application-logs/README.md)
