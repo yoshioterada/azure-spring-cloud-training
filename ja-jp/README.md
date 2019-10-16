@@ -1,6 +1,6 @@
 |English|
 |:--:|
-|[![English](./Flag-usa_32.png) ](../Readme.md)|
+|[![English](./Flag-usa_32.png) ](../README.md)|
 
 
 # Azure Spring Cloud トレーニング

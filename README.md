@@ -1,6 +1,6 @@
 |Japaneses|
 |:--:|
-|[![Japanese](./ja-jp/Flag-Japan_32.png) ](./ja-jp/Readme.md)|
+|[![Japanese](./ja-jp/Flag-Japan_32.png) ](./ja-jp/README.md)|
 
 
 # Azure Spring Cloud training
