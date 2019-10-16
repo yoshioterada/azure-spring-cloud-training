@@ -1,3 +1,8 @@
+|Japaneses|
+|:--:|
+|[![Japanese](./ja-jp/Flag-Japan_32.png) ](./ja-jp/Readme.md)|
+
+
 # Azure Spring Cloud training
 
 You will find here a full workshop on Azure Spring Cloud, including guides and demos.
