@@ -24,23 +24,26 @@ __このガイドは  [Azure Spring Cloud training](../README.md) トレーニ�
 
 ![Create Log analytics workspace](media/01-create-logs-analytics-workspace.png)
 
-- Now that the Log analytics workspace has been created, we must configure our Azure Spring Cloud cluster instance to send its data to this workspace.
-- Go to the "Overview" page of your Azure Spring Cloud cluster, and select "Diagnostic settings" in the menu.
+- Log Analytics のワークスペースを作成したので、Azure Spring Cloud クラスターインスタンスからワークスペースにデータを送信するように構成します。
+- Azure Spring Cloud クラスターの "Overview" ページに移動し、メニューで "Diagnostic Settings" を選択します
 - Click on "Add diagnostic setting" and configure your cluster to send all its logs to the Log analytics workspace that we just created.
+- 作成した Log Analytics のワークスペースに対してログを送信するため、"Add diagnostic setting" をクリックし設定してください。
 
 ![Send logs to the log analytics workspace](media/02-send-logs-to-log-analytics-workspace.png)
 
-## Query application logs
+## アプリケーション・ログのクエリ
 
-Logs are now available in the "Logs" menu of you Azure Spring Cloud cluster.
+以上の設定で、ログをAzure Spring Cloud クラスターの "Logs" メニューから参照できるようになりました。
 
-This is a shortcut to the Logs Analytics workspace that was created earlier, so you can access that workspace through both menus.
+これは、事前に作成した Log Analytics のワークスペースのショートカットで、メニューからアクセスできます。
 
-This workspace allows to do queries on the aggregated logs, the most common one being to get the latest log from a specific application:
+このワークスペースでは集約されたログからクエリを実行することができます。一番分かりやすい処理として、特定のアプリケーションからログの最終行を取得するなどが可能です。
 
-__Important:__ Spring Boot applications logs have a dedicated `AppPlatformLogsforSpring` type.
 
-As we called the application in the [previous guide](../02-build-a-simple-spring-boot-microservice/README.md) "simple-microservice", here is how to get its 50 most recent logs of the `AppPlatformLogsforSpring` type for this application:
+__重要:__  Spring Boot のアプリケーションに対して専用の型 (`AppPlatformLogsforSpring`) が用意されています。
+
+ここでは [前章](../02-build-a-simple-spring-boot-microservice/README.md) で実装した "simple-microservice" を利用し、アプリケーション・ログの最後から 50 行目までを取得する方法を記載しています。
+
 
 ```
 AppPlatformLogsforSpring
@@ -52,6 +55,7 @@ AppPlatformLogsforSpring
 
 ---
 
-⬅️ Previous guide: [02 - Build a simple Spring Boot microservice](../02-build-a-simple-spring-boot-microservice/README.md)
+⬅️ 前章: [02 - かんたんな Spring Boot マイクロサービスの構築
+](../02-build-a-simple-spring-boot-microservice/README.md)
 
-➡️ Next guide: [04 - Configure a Spring Cloud Config server](../04-configure-a-spring-cloud-config-server/README.md)
+➡️ 次章: [04 - Spring Cloud Config Server の設定](../04-configure-a-spring-cloud-config-server/README.md)
